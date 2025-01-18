@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+body {
+align-items: center;
+background: #E3E3E3;
+display: flex;
+height: 100vh;
+justify-content: center;
+}
+@mixin white-gradient {
+background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+$animationSpeed: 10s;
+// Animation
+.slide-track {
+  width: calc(250px * 10); /* Only original slides */
+}
+@keyframes scroll {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(calc(-250px * 10))}  
+}
+// Styling
+.slider {
+background: white;
+box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+height: 100px;
+margin: auto;
+overflow:hidden;
+position: relative;
+width: 960px;
+&::before,
+&::after {
+@include white-gradient;
+content: "";
+height: 100px;
+position: absolute;
+width: 200px;
+z-index: 2;
+}
+&::after {
+right: 0;
+top: 0;
+transform: rotateZ(180deg);
+}
+&::before {
+left: 0;
+top: 0;
+}
+.slide-track {
+animation: scroll $animationSpeed linear infinite;
+display: flex;
+width: calc(250px * 15);
+}
+.slide {
+height: 100px;
+width: 250px;
+}
+}
+<script type="text/javascript">
+let track = document.querySelector('.slide-track');
+// Loop through slides 
+track.addEventListener('animationiteration', () => {
+  let slides = track.querySelectorAll('.slide');
+  // Clone all slides
+  slides.forEach(slide => {
+    let clone = slide.cloneNode(); 
+    track.appendChild(clone);
+  })
+  // Reset track position
+  track.style.transform = 'translateX(0)';
+});
+    </script>
+</head>
+<body>
+<div class="slider">
+<div class="slide-track">
+<div class="slide">
+<img src="https://i.imgur.com/M5yCFNj.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/UfJmKta.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/S7W0FzS.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/sX2JgRM.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/YQCJyS9.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/IOvEwZH.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/Maxred1.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/cTC7Nuh.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/WWo3Z3D.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/AGyZnFx.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/M5yCFNj.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/UfJmKta.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/S7W0FzS.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/sX2JgRM.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/YQCJyS9.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/IOvEwZH.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/Maxred1.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/cTC7Nuh.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/WWo3Z3D.png" height="100" width="250" alt="" />
+</div>
+<div class="slide">
+<img src="https://i.imgur.com/AGyZnFx.png" height="100" width="250" alt="" />
+</div>
+</div>
+<body>
+</html>
